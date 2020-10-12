@@ -1,6 +1,6 @@
 # Install Dependencies
 install:
-	pip3 install --target=./lib/module/ pywebview pillow xlsxwriter
+	pip3 install --target=./lib/module/ pywebview pillow xlsxwriter pyinstaller
 
 # Uninstall Dependencies
 uninstall:
