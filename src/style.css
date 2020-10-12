@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+:focus {
+    outline: none;
+}
+
+div.file-explorer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    background: sandybrown;
+    text-align: center;
+}
+
+div.file-explorer:hover, div.file-explorer:hover * {
+    filter: brightness(95%);
+    cursor: pointer;
+}
+
+div.file-explorer * {
+    color: white;
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+div.file-explorer button {
+    background: none;
+    border: none;
+}
+
+div.file-explorer input {
+    display: none;
+}
