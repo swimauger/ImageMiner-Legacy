@@ -3,7 +3,7 @@ const $files = document.querySelector('div.files');
 const $export = document.querySelector('button.export');
 
 async function uploadFiles() {
-    const response = await pywebview.api.send('open_explorer', null);
+    const response = await pywebview.api.send('open_explorer', "");
     const images = JSON.parse(response)[0];
     if (images.length) {
         $nofiles.style.display = 'none';

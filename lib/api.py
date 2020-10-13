@@ -8,7 +8,7 @@ class API:
     def send(self, channel, message):
         returnVals = []
         for listener in self.listeners[channel]:
-            returnVals.append(listener(message))
+            returnVals.append(listener(json.loads(message)))
         return json.dumps(returnVals)
 
     def on(self, channel, callback):
