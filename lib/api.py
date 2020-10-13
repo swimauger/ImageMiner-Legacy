@@ -1,11 +1,15 @@
+import json
+
 class API:
     def __init__(self):
         self.cancel_heavy_stuff_flag = False
         self.listeners = {}
     
     def send(self, channel, message):
+        returnVals = []
         for listener in self.listeners[channel]:
-            listener(message)
+            returnVals.append(listener(message))
+        return json.dumps(returnVals)
 
     def on(self, channel, callback):
         if channel not in self.listeners:
