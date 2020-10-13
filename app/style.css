@@ -1,35 +1,126 @@
 body {
     margin: 0;
+    background: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 :focus {
     outline: none;
 }
 
-div.file-explorer {
+@keyframes slideright {
+    from { left: -10vw }
+    to { left: 0 }
+}
+
+div.nofiles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    height: 90vh;
+}
+
+div.nofiles a {
+    color: darkorange;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div.nofiles a:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+button.export {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    background: sandybrown;
+    border-bottom: 1px solid gray;
+    color: white;
+    border: none;
+    font-size: 3vw;
+    top: 0;
+    left: -10vw;
+    padding: 1vw;
+    overflow: hidden;
+}
+
+button.export:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+    animation-name: slideright;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+button.file-explorer {
     position: absolute;
-    bottom: 0;
+    border: none;
+    bottom: -2px;
     width: 100vw;
     background: sandybrown;
     text-align: center;
 }
 
-div.file-explorer:hover, div.file-explorer:hover * {
+button.file-explorer:hover, div.file-explorer:hover * {
     filter: brightness(95%);
     cursor: pointer;
 }
 
-div.file-explorer * {
+button.file-explorer * {
     color: white;
     font-size: 3vw;
     padding: 1vw;
 }
 
-div.file-explorer button {
-    background: none;
-    border: none;
+button.file-explorer input {
+    display: none;
 }
 
-div.file-explorer input {
+div.files {
+    overflow: scroll;
+    height: 100vh;
     display: none;
+}
+
+div.files div.file-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    background: #eee;
+    color: orange;
+    border-bottom: 1px solid darkgray;
+    font-size: 2vw;
+    font-weight: lighter;
+}
+
+div.files div.file-item:hover {
+    filter: brightness(95%);
+}
+
+div.files div.file-item div {
+    display: flex;
+}
+
+div.files div.file-item i.fa-times {
+    display: none;
+    color: crimson;
+}
+
+div.files div.file-item:hover i.fa-times {
+    display: inline;
+}
+
+div.files div.file-item i.fa-times:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+div.files div.file-item * {
+    margin: 1vw;
 }

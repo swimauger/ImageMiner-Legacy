@@ -10,11 +10,18 @@
     <title>Image Miner</title>
 </head>
 <body>
-    <div class="file-explorer">
-        <i class="fa fa-upload"></i>
-        <button>Upload Files...</button>
-        <input type="file">
+    <div class="nofiles">
+        No images have been uploaded yet. To upload click&ThickSpace;<a>here</a>&ThickSpace;or the upload button bellow.
     </div>
+
+    <button class="export">Export&ThickSpace;<i class="fa fa-arrow-right"></i></button>
+    <div class="files"></div>
+
+    <button class="file-explorer">
+        <i class="fa fa-upload"></i>
+        <span>Upload Files...</span>
+        <input type="file">
+    </button>
 
     <script src="handle.js"></script>
 </body>
