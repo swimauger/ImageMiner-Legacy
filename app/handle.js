@@ -2,9 +2,12 @@ const $nofiles = document.querySelector('div.nofiles');
 const $files = document.querySelector('div.files');
 const $export = document.querySelector('button.export');
 
+const exportSession = [];
+
 async function uploadFiles() {
-    const response = await pywebview.api.send('open_explorer', "");
-    const images = JSON.parse(response)[0];
+    const response = JSON.parse(await pywebview.api.send('open_explorer', null));
+    exportSession.push(...response);
+    const images = response[0];
     if (images.length) {
         $nofiles.style.display = 'none';
         $files.style.display = 'block';
@@ -26,3 +29,12 @@ async function uploadFiles() {
 document.querySelector('button.file-explorer').addEventListener('click', uploadFiles);
 
 document.querySelector('div.nofiles a').addEventListener('click', uploadFiles);
+
+document.querySelector('button.export').addEventListener('click', async (event) => {
+    await pywebview.api.send('export', JSON.stringify(exportSession));
+    $files.style.display = 'none';
+    $export.style.display = 'none';
+    $nofiles.style.display = 'flex';
+    $files.innerHTML = '';
+    exportSession = [];
+});
